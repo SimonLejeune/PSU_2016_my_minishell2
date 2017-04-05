@@ -5,10 +5,11 @@
 ## Login   <simon.lejeune@epitech.eu>
 ## 
 ## Started on  Mon Apr  3 14:52:15 2017 LEJEUNE
-## Last update Mon Apr  3 15:32:05 2017 LEJEUNE
+## Last update Tue Apr  4 14:53:03 2017 Simon Lejeune
 ##
 
 SRC	=	src/functions.c \
+		src/main.c
 
 OBJ	=	$(SRC:.c=.o)
 
@@ -21,7 +22,7 @@ CFLAGS	=	-I include
 all	:	$(NAME)
 
 $(NAME)	:	$(OBJ)
-		$(CC) -o $(NAME) $(OBJ)
+		$(CC) -o $(NAME) $(OBJ) -L./include -lgnl
 
 clean	:
 		rm -f $(OBJ)
