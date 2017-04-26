@@ -5,17 +5,20 @@
 ## Login   <simon.lejeune@epitech.eu>
 ## 
 ## Started on  Mon Apr  3 14:52:15 2017 LEJEUNE
-## Last update Tue Apr  4 14:53:03 2017 Simon Lejeune
+## Last update Sat Apr  8 21:28:22 2017 Simon LEJEUNE
 ##
 
-SRC	=	src/functions.c \
+SRC	=	src/functions/my_putchar.c		\
+		src/functions/my_putstr.c		\
+		src/functions/my_strlen.c		\
+		src/functions/my_str_to_wordtab.c	\
 		src/main.c
 
 OBJ	=	$(SRC:.c=.o)
 
 NAME	=	mysh
 
-CC	=	gcc -W -Wall -Wextra
+CC	=	gcc -g -W -Wall -Wextra
 
 CFLAGS	=	-I include
 

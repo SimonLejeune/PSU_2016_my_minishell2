@@ -5,7 +5,7 @@
 ** Login   <simon.lejeune@epitech.eu>
 ** 
 ** Started on  Tue Apr  4 14:37:23 2017 Simon Lejeune
-** Last update Tue Apr  4 16:58:41 2017 Simon Lejeune
+** Last update Sat Apr  8 21:36:13 2017 Simon LEJEUNE
 */
 
 #include <unistd.h>
@@ -18,9 +18,7 @@ int	main(int ac, char **av, char **envp)
 {
   char	*s;
   char	**tab;
-  int	i;
 
-  i = 0;
   s = NULL;
   tab = NULL;
   if (ac == 1)
@@ -30,8 +28,7 @@ int	main(int ac, char **av, char **envp)
 	  my_putstr("$>");
 	  s = get_next_line(0);
 	  tab = my_str_to_wordtab(s);
-	  printf("%s\n", envp[i]);
-	  i++;
 	}
     }
+  return (0);
 }
