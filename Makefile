@@ -5,7 +5,7 @@
 ## Login   <simon.lejeune@epitech.eu>
 ## 
 ## Started on  Mon Apr  3 14:52:15 2017 LEJEUNE
-## Last update Sat Apr  8 21:28:22 2017 Simon LEJEUNE
+## Last update Thu Apr 27 16:25:52 2017 Simon LEJEUNE
 ##
 
 SRC	=	src/functions/my_putchar.c		\
@@ -18,14 +18,14 @@ OBJ	=	$(SRC:.c=.o)
 
 NAME	=	mysh
 
-CC	=	gcc -g -W -Wall -Wextra
+CC	=	gcc
 
-CFLAGS	=	-I include
+CFLAGS	=	-W -Wall -Wextra -Iinclude -g
 
 all	:	$(NAME)
 
 $(NAME)	:	$(OBJ)
-		$(CC) -o $(NAME) $(OBJ) -L./include -lgnl
+		$(CC) -o $(NAME) $(OBJ) -L./include -lgnl $(CFLAGS)
 
 clean	:
 		rm -f $(OBJ)

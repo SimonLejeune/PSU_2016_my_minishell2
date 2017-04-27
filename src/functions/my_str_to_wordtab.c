@@ -5,7 +5,7 @@
 ** Login   <slejeune@epitech.net>
 ** 
 ** Started on  Wed Apr  5 18:27:11 2017 Simon LEJEUNE
-** Last update Wed Apr 12 19:29:48 2017 Simon LEJEUNE
+** Last update Thu Apr 27 18:27:05 2017 Simon LEJEUNE
 */
 
 #include <stdlib.h>
@@ -26,62 +26,47 @@ int	count_word(char *str, char limiter)
 	res++;
       i++;
     }
-  printf("word ==> %d\n", res);
   return (res);
 }
 
-char	**alloc_tab(char *str, char limiter)
+int	count_char(char	*str, char limiter, int pos)
 {
-  char	**tab;
-  int	i;
   int	res;
-  int	compt;
 
-  i = 0;
-  compt = 0;
-  if ((tab = malloc(sizeof(char *) * count_word(str, limiter))) == NULL)
-    return (NULL);
-  while (str[i] != '\0' && str[i] != '\n')
+  res = 0;
+  while (str[pos] != limiter && str[pos] != '\0')
     {
-      res = 0;
-      while (str[i] != '\0' && str[i] != limiter && str[i] != '\n')
-	{
-	  res++;
-	  i++;
-	}
-      if ((tab[compt] = malloc(sizeof(char) * res)) == NULL)
-	return (NULL);
-      printf("word %d ==> char %d\n", compt, res);
-      compt++;
-      i++;
+      res++;
+      pos++;
     }
-  return (tab);
+  return (res);
 }
 
 char	**my_str_to_wordtab(char *str, char limiter)
 {
   char	**tab;
   int	i;
-  int	a;
-  int	b;
+  int	mot;
+  int	lettre;
 
   i = 0;
-  a = 0;
-  b = 0;
-  if ((tab = malloc(sizeof(char*) * count_word(str, limiter))) == NULL)
-    return (NULL);
-  tab = alloc_tab(str, limiter);
+  mot = 0;
+  tab = malloc(sizeof(char*) * (count_word(str, limiter) + 1 ));
   while (str[i] != '\0')
     {
+      lettre = 0;
+      tab[mot] = malloc(sizeof(char) * count_char(str, limiter, i) + 1);
       while (str[i] != limiter && str[i] != '\0')
-	tab[a][b++] = str[i++];
-      a++;
+	{
+	  tab[mot][lettre++] = str[i];
+	  i++;
+	}
+      if (str[i] == '\0')
+	return (tab);
+      tab[mot][lettre] = '\0';
       i++;
+      mot++;
     }
+  tab[lettre] = '\0';
   return (tab);
-}
-
-void	main(int ac, char **av)
-{
-  my_str_to_wordtab(av[1], ' ');
 }
