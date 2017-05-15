@@ -5,7 +5,7 @@
 ** Login   <simon.lejeune@epitech.eu>
 ** 
 ** Started on  Tue Apr  4 14:37:23 2017 Simon Lejeune
-** Last update Mon May 15 18:24:43 2017 Simon LEJEUNE
+** Last update Mon May 15 18:35:14 2017 Simon LEJEUNE
 */
 
 #include <unistd.h>
@@ -38,7 +38,8 @@ int	main(int ac, char **av, char **env)
 	      my_path = init_command(my_command, my_path);
 	      while (my_path[i] != '\0')
 		{
-		  printf("%s\n", my_path[i]);
+		  if (access(my_path[i], F_OK) != -1)
+		    execve(my_path[i], my_command, env);
 		  i++;
 		}
 	    }
