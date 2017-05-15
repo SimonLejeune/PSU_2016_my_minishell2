@@ -5,7 +5,7 @@
 ** Login   <simon.lejeune@epitech.eu>
 ** 
 ** Started on  Tue Apr  4 14:37:23 2017 Simon Lejeune
-** Last update Mon May 15 14:49:06 2017 Simon LEJEUNE
+** Last update Mon May 15 18:24:43 2017 Simon LEJEUNE
 */
 
 #include <unistd.h>
@@ -20,25 +20,29 @@ int	main(int ac, char **av, char **env)
   char	*s;
   char	**my_command;
   char	**my_env;
-  char	**my_bin;
+  char	**my_path;
   int	i;
 
-  i = 0;
   if (ac == 1)
     {
       my_env = my_cpyenv(env);
       while (42)
 	{
+	  i = 0;
 	  my_putstr("$>");
 	  s = get_next_line(0);
-	  my_command = my_str_to_wordtab(s, ' ');
-	  my_bin = get_path(my_env);
-	  while (my_bin[i] != NULL)
+	  if (s[0] != '\0')
 	    {
-	      printf("%s\n", my_bin[i]);
-	      i++;
+	      my_command = my_str_to_wordtab(s, ' ');
+	      my_path = get_path(my_env);
+	      my_path = init_command(my_command, my_path);
+	      while (my_path[i] != '\0')
+		{
+		  printf("%s\n", my_path[i]);
+		  i++;
+		}
 	    }
 	}
-      return (0);
     }
+  return (0);
 }
