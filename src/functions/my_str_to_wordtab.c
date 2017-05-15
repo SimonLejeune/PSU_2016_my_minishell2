@@ -5,13 +5,13 @@
 ** Login   <slejeune@epitech.net>
 ** 
 ** Started on  Wed Apr  5 18:27:11 2017 Simon LEJEUNE
-** Last update Thu Apr 27 18:27:05 2017 Simon LEJEUNE
+** Last update Mon May 15 14:51:39 2017 Simon LEJEUNE
 */
 
 #include <stdlib.h>
 #include <stdio.h>
 
-//#include "my.h"
+#include "my.h"
 
 int	count_word(char *str, char limiter)
 {
@@ -19,7 +19,7 @@ int	count_word(char *str, char limiter)
   int	res;
 
   i = 0;
-  res = 0;
+  res = 1;
   while (str[i] != '\0')
     {
       if (str[i] == limiter && str[i] != '\0')
@@ -51,22 +51,21 @@ char	**my_str_to_wordtab(char *str, char limiter)
 
   i = 0;
   mot = 0;
-  tab = malloc(sizeof(char*) * (count_word(str, limiter) + 1 ));
+  tab = malloc(sizeof(char*) * (count_word(str, limiter) + 1));
+  tab[count_word(str, limiter)] = NULL;
   while (str[i] != '\0')
     {
       lettre = 0;
-      tab[mot] = malloc(sizeof(char) * count_char(str, limiter, i) + 1);
+      tab[mot] = malloc(sizeof(char) * (count_char(str, limiter, i) + 1));
       while (str[i] != limiter && str[i] != '\0')
 	{
-	  tab[mot][lettre++] = str[i];
-	  i++;
+	  tab[mot][lettre++] = str[i++];
 	}
-      if (str[i] == '\0')
-	return (tab);
       tab[mot][lettre] = '\0';
-      i++;
+      if (str[i] != '\0')
+	i++;
       mot++;
     }
-  tab[lettre] = '\0';
+  tab[mot] = NULL;
   return (tab);
 }

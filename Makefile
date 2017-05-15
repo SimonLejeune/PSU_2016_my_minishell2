@@ -5,14 +5,15 @@
 ## Login   <simon.lejeune@epitech.eu>
 ## 
 ## Started on  Mon Apr  3 14:52:15 2017 LEJEUNE
-## Last update Thu Apr 27 16:25:52 2017 Simon LEJEUNE
+## Last update Mon May 15 10:53:42 2017 Simon LEJEUNE
 ##
 
 SRC	=	src/functions/my_putchar.c		\
 		src/functions/my_putstr.c		\
 		src/functions/my_strlen.c		\
 		src/functions/my_str_to_wordtab.c	\
-		src/main.c
+		src/main.c				\
+		src/my_getenv.c
 
 OBJ	=	$(SRC:.c=.o)
 

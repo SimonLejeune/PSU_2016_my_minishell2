@@ -5,7 +5,7 @@
 ** Login   <simon.lejeune@epitech.eu>
 ** 
 ** Started on  Tue Apr  4 14:44:11 2017 Simon Lejeune
-** Last update Thu Apr 27 17:53:50 2017 Simon LEJEUNE
+** Last update Mon May 15 13:02:21 2017 Simon LEJEUNE
 */
 
 #ifndef		MY_H_
@@ -17,6 +17,7 @@ int	my_strlen(char*);
 char	**my_str_to_wordtab(char *, char);
 int	count_char(char *, char, int);
 int	count_word(char *, char);
-
+char	**my_cpyenv(char **);
+char	**get_path(char **);
 
 #endif		/*!MY_H_*/
