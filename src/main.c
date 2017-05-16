@@ -5,7 +5,7 @@
 ** Login   <simon.lejeune@epitech.eu>
 ** 
 ** Started on  Tue Apr  4 14:37:23 2017 Simon Lejeune
-** Last update Mon May 15 18:35:14 2017 Simon LEJEUNE
+** Last update Tue May 16 15:15:24 2017 Simon LEJEUNE
 */
 
 #include <unistd.h>
@@ -17,11 +17,12 @@
 
 int	main(int ac, char **av, char **env)
 {
-  char	*s;
-  char	**my_command;
-  char	**my_env;
-  char	**my_path;
-  int	i;
+  char		*s;
+  char		**my_command;
+  char		**my_env;
+  char		**my_path;
+  int		i;
+  pid_t		pid;
 
   if (ac == 1)
     {
@@ -39,7 +40,8 @@ int	main(int ac, char **av, char **env)
 	      while (my_path[i] != '\0')
 		{
 		  if (access(my_path[i], F_OK) != -1)
-		    execve(my_path[i], my_command, env);
+		    if ((pid = fork()) == 0) 
+		      execve(my_path[i], my_command, env);
 		  i++;
 		}
 	    }
