@@ -5,13 +5,14 @@
 ## Login   <simon.lejeune@epitech.eu>
 ## 
 ## Started on  Mon Apr  3 14:52:15 2017 LEJEUNE
-## Last update Mon May 15 10:53:42 2017 Simon LEJEUNE
+## Last update Tue May 16 15:47:10 2017 Simon LEJEUNE
 ##
 
 SRC	=	src/functions/my_putchar.c		\
 		src/functions/my_putstr.c		\
 		src/functions/my_strlen.c		\
 		src/functions/my_str_to_wordtab.c	\
+		src/functions/my_strcmp.c		\
 		src/main.c				\
 		src/my_getenv.c
 
