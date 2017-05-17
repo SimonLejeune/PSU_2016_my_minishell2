@@ -5,7 +5,7 @@
 ** Login   <simon.lejeune@epitech.eu>
 ** 
 ** Started on  Tue Apr  4 14:37:23 2017 Simon Lejeune
-** Last update Tue May 16 15:51:22 2017 Simon LEJEUNE
+** Last update Wed May 17 14:16:41 2017 Simon LEJEUNE
 */
 
 #include <unistd.h>
@@ -30,6 +30,7 @@ int	minishell(char **env)
       i = 0;
       my_putstr("$>");
       s = get_next_line(0);
+      s = my_epurstr(s);
       if (s[0] != '\0')
 	{
 	  my_command = my_str_to_wordtab(s, ' ');
