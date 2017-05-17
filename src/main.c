@@ -5,12 +5,13 @@
 ** Login   <simon.lejeune@epitech.eu>
 ** 
 ** Started on  Tue Apr  4 14:37:23 2017 Simon Lejeune
-** Last update Wed May 17 14:16:41 2017 Simon LEJEUNE
+** Last update Wed May 17 15:56:34 2017 Simon LEJEUNE
 */
 
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <signal.h>
 
 #include "my.h"
 #include "gnl.h"
